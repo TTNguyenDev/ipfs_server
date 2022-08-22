@@ -31,26 +31,8 @@ app.post("/uploadFile",
     })
   })
 
-// app.get("/", (req, res) => {
-//   console.log("calling");
-//
-//   IPFSUtils.uploadToIPFS({
-//     onSuccess: (url: string)=>{
-//       console.log("TEST url ", url);
-//       
-//       IPFSUtils.getDataByCID(url).then((res)=>{
-//         console.log("GET DATA RESULT ", res);
-//       });
-//     }, 
-//     onError: (err: any) => {
-//       console.error(err);
-//       
-//     }
-//   });
-//   
-//   res.send("hello")
-// })
-
 app.listen(port, () => {
   console.log("Start listening to port ", port);
 })
+
+module.exports = app;
