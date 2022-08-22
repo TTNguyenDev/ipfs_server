@@ -31,6 +31,8 @@ app.post("/uploadFile",
     })
   })
 
+app.get("/", (req ,res) => res.send("IPFS Server"));
+
 app.listen(port, () => {
   console.log("Start listening to port ", port);
 })
