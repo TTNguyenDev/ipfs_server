@@ -38,7 +38,7 @@ export class IPFSUtils {
             IPFSUtils.client
                 .add(buffer)
                 .then(async (res) => {
-                    const url = IPFS_BASE_URL + res.path;
+                    const url = res.path;
                     // console.log("IPFS response", JSON.stringify(res, null, 2))
                     if (onSuccess) await onSuccess(url);
                     resolve(url);
@@ -68,7 +68,7 @@ export class IPFSUtils {
                 IPFSUtils.client
                     .add(result)
                     .then(async (res) => {
-                        const url = IPFS_BASE_URL + res.path;
+                        const url = res.path;
                         // console.log("IPFS response", JSON.stringify(res, null, 2))
 
                         if (onSuccess) await onSuccess(res.path);
@@ -103,7 +103,7 @@ export class IPFSUtils {
                 IPFSUtils.client
                     .add(result)
                     .then(async (res) => {
-                        const url = IPFS_BASE_URL + res.path;
+                        const url = res.path;
 
                         if (onSuccess) await onSuccess(url);
 
