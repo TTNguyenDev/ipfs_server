@@ -2,7 +2,6 @@ import express from "express";
 import { IPFSUtils } from "./IPFSUtils";
 import { CORS } from "./cors";
 import multer from "multer";
-import bodyParser from "body-parser";
 
 const app = express();
 const port = 8000;
@@ -33,7 +32,7 @@ app.post("/uploadFile", upload.single("file"), (req, res) => {
   });
 });
 
-app.post("/upload", bodyParser.json(), (req, res) => {
+app.post("/upload", express.json({ limit: "50mb" }), (req, res) => {
   if (!req.body) {
     res.status(400).send("Empty upload data");
     return;
