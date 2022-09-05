@@ -6,7 +6,9 @@ import multer from "multer";
 const app = express();
 const port = 8000;
 
-const upload = multer();
+const FILE_SIZE_LIMIT = 4 * 1024 * 1024;
+
+const upload = multer({limits: {fileSize: FILE_SIZE_LIMIT}});
 
 app.use(CORS);
 // app.use(express.json())
