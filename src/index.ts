@@ -6,7 +6,7 @@ import multer from "multer";
 const app = express();
 const port = 8000;
 
-const FILE_SIZE_LIMIT = 4 * 1024 * 1024;
+const FILE_SIZE_LIMIT = 5 * 1024 * 1024;
 
 const upload = multer({limits: {fileSize: FILE_SIZE_LIMIT}});
 
