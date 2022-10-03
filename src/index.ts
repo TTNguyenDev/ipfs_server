@@ -10,7 +10,7 @@ const FILE_SIZE_LIMIT = 5 * 1024 * 1024;
 
 const upload = multer({limits: {fileSize: FILE_SIZE_LIMIT}});
 
-app.use(CORS);
+// app.use(CORS);
 // app.use(express.json())
 // app.use(upload.array('files'));
 app.use(express.static("public"));
