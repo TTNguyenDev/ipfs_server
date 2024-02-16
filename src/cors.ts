@@ -1,7 +1,7 @@
-import cors from 'cors';
+import cors from "cors";
 
 const options: cors.CorsOptions = {
-  origin: ["http://localhost:3000", "https://rep-run-ui.vercel.app/"]
-}
+  credentials: true,
+};
 
 export const CORS = cors(options);

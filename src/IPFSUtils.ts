@@ -12,6 +12,7 @@ export class IPFSUtils {
 
     const auth =
       "Basic " + Buffer.from(projectId + ":" + secretKey).toString("base64");
+    console.log(auth);
 
     this._client = ipfsClient({
       host: "ipfs.infura.io",
@@ -27,25 +28,20 @@ export class IPFSUtils {
 
   public static uploadArrayBufferToIPFS({
     buffer,
-    onSuccess,
-    onError,
   }: {
     buffer: Buffer;
-    onSuccess?: (url: string) => any;
-    onError?: any;
-  }) {
+  }): Promise<string> {
     return new Promise((resolve, reject) => {
       IPFSUtils.client
         .add(buffer)
         .then(async (res) => {
           const url = res.path;
-          // console.log("IPFS response", JSON.stringify(res, null, 2))
-          if (onSuccess) await onSuccess(url);
+          console.log("IPFS response", JSON.stringify(res, null, 2));
           resolve(url);
         })
         .catch(async (err) => {
-          if (onError) await onError(err);
-          reject();
+          console.log("REQuest error", err);
+          reject(err);
         });
     });
   }
