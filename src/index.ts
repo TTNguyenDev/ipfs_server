@@ -16,7 +16,7 @@ app.use(CORS);
 app.use(express.static("public"));
 
 app.post("/uploadFile", upload.single("file"), (req, res) => {
-  console.log("REQ", req.files);
+  console.log("REQ file:", req.file);
 
   if (!req.file) {
     res.status(400).send("Empty upload data");
@@ -33,7 +33,7 @@ app.post("/uploadFile", upload.single("file"), (req, res) => {
 });
 
 app.post("/upload", express.json({ limit: "50mb" }), (req, res) => {
-  console.log("REQ", req.body.data);
+  console.log("REQ data:", req.body.data);
   if (!req.body) {
     res.status(400).send("Empty upload data");
     return;
